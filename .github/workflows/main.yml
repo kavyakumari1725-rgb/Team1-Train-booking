@@ -22,7 +22,8 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r trainbooking/requirements.txt
+
 
     - name: Set Environment Variables
       run: |
