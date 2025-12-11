@@ -1,0 +1,20 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+<h2>Ticket Details</h2>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">PNR: {{ ticket.pnr }}</h5>
+    <p class="card-text">
+      Passenger: {{ ticket.user.username }}<br>
+      Train: {{ ticket.train.name }} ({{ ticket.train.source }} → {{ ticket.train.destination }})<br>
+      Seats: {{ ticket.seats }}<br>
+      Status: {{ ticket.get_status_display }}<br>
+      Booked on: {{ ticket.booked_on }}<br>
+      {% if ticket.payment %}
+        Payment: {{ ticket.payment.amount }} ({{ ticket.payment.status }}) via {{ ticket.payment.payment_method }}
+      {% endif %}
+    </p>
+    <a class="btn btn-secondary" href="{% url 'my_tickets' %}">Back to My Tickets</a>
+  </div>
+</div>
+{% endblock %}

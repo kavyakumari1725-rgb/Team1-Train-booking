@@ -1,0 +1,26 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+<h2>My Tickets</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>PNR</th><th>Train</th><th>Route</th><th>Seats</th><th>Status</th><th>Booked On</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in tickets %}
+    <tr>
+      <td>{{ t.pnr }}</td>
+      <td>{{ t.train.name }}</td>
+      <td>{{ t.train.source }} → {{ t.train.destination }}</td>
+      <td>{{ t.seats }}</td>
+      <td>{{ t.get_status_display }}</td>
+      <td>{{ t.booked_on }}</td>
+      <td><a class="btn btn-sm btn-outline-primary" href="{% url 'ticket_detail' t.pnr %}">View</a></td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="7">No tickets booked yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+<h2>Book Ticket</h2>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ train.name }}</h5>
+    <p class="card-text">
+      {{ train.source }} → {{ train.destination }}<br>
+      Departure: {{ train.departure_time }}<br>
+      Seats available: {{ train.seats_available }}
+    </p>
+    <form method="post" class="row g-3">
+      {% csrf_token %}
+      <div class="col-md-3">
+        <label class="form-label">Seats</label>
+        <input class="form-control" type="number" name="seats" min="1" value="1" required>
+      </div>
+      <div class="col-md-3 align-self-end">
+        <button class="btn btn-primary">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

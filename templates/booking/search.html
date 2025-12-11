@@ -1,0 +1,45 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+  {% csrf_token %}
+<h2>Search Trains</h2>
+<form method="post" class="row g-3 mb-4">
+  {% csrf_token %}
+  <div class="col-md-4">
+    <input class="form-control" type="text" name="source" placeholder="Source" value="{{ source }}">
+  </div>
+  <div class="col-md-4">
+    <input class="form-control" type="text" name="destination" placeholder="Destination" value="{{ destination }}">
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary w-100">Search</button>
+  </div>
+</form>
+
+<h3>Available Trains</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th><th>Route</th><th>Departure</th><th>Seats Available</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in trains %}
+    <tr>
+      <td>{{ t.name }}</td>
+      <td>{{ t.source }} → {{ t.destination }}</td>
+      <td>{{ t.departure_time }}</td>
+      <td>{{ t.seats_available }}</td>
+      <td>
+        {% if user.is_authenticated %}
+          <a class="btn btn-sm btn-success" href="{% url 'book_ticket' t.id %}">Book</a>
+        {% else %}
+          <a class="btn btn-sm btn-secondary" href="{% url 'login' %}">Login to book</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No trains found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
