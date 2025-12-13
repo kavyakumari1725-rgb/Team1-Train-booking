@@ -1,0 +1,7 @@
+organization=usamaio
+projectKey=team1-train-booking
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.77381
+dashboardUrl=https://sonarcloud.io/dashboard?id=team1-train-booking
+ceTaskId=AZsYn7AEbESO-pTvVz2B
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZsYn7AEbESO-pTvVz2B
