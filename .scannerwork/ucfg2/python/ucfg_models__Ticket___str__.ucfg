@@ -1,0 +1,44 @@
+
+booking.models.Ticket.__str__N
+DC:\Users\USER\Downloads\Devops\Team1-Train-booking\booking\models.py" "("2*“
+2# #(7X
+V
+# #(
+%1"__id*>
+
+__unknown_file ("* 
+booking.models.Ticket"
+pnrY
+W
+## #(,
+%2"__id*?
+
+__unknown_file (#*!
+booking.models.Ticket"
+userJ
+H
+## #(5
+%3"__id*0
+
+__unknown_file (*
+
+%2"
+
+usernameo
+m
+# #(7
+%4"__concat*
+# #(
+PNR *
+# #(
+
+%1*
+# #("
+ - *
+## #(5
+
+%3"
+# #(7
+
+%4B
+booking.models.TicketH
